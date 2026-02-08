@@ -29,21 +29,22 @@ body {
   width: 100%;
   image-rendering: pixelated;
 }
-@keyframes slideIn {
-  to { right: 24px; }
-}
+@keyframes slideIn { to { right: 24px; } }
 
 /* === SCROLLING GALLERIES === */
 .gallery {
   position: fixed;
   top: 0;
-  width: 320px;
+  width: 20vw; 
+  max-width: 320px; 
+  min-width: 100px; 
   height: 100vh;
   overflow: hidden;
   z-index: 5;
-  padding: 14px;
+  padding: 2vw; 
   box-sizing: border-box;
 }
+
 .left { left: 0; }
 .right { right: 0; }
 
@@ -56,15 +57,22 @@ body {
 
 .frame {
   width: 100%;
-  height: 280px;
-  border: 8px solid  #f45468;
+  height: 0;
+  padding-bottom: 100%;
+  border: 0.8vw solid  #f45468;
   background: #ffc2cb;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
-.frame img { width: 220px; height: 220px; object-fit: cover; }
+
+.frame img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
 
 @keyframes scrollUp { to { transform: translateY(-50%); } }
 @keyframes scrollDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
@@ -96,12 +104,7 @@ body {
   filter: drop-shadow(0 0 30px hotpink);
 }
 .hit { animation: hitShake 0.25s; }
-@keyframes hitShake {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.2) rotate(-6deg); }
-  50% { transform: scale(0.85) rotate(6deg); }
-  100% { transform: scale(1); }
-}
+@keyframes hitShake { 0% { transform: scale(1); } 25% { transform: scale(1.2) rotate(-6deg); } 50% { transform: scale(0.85) rotate(6deg); } 100% { transform: scale(1); } }
 @keyframes float { 50% { transform: translateY(-12px); } }
 
 /* MESSAGE */
@@ -125,11 +128,9 @@ body {
   animation: fall 2.5s linear forwards;
   z-index: 999;
 }
-@keyframes fall {
-  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-}
+@keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
-/* === FLOATING VALENTINE PNGS === */
+/* FLOATING VALENTINE PNGS */
 .floating-lab {
   position: fixed;
   width: 80px;
@@ -139,12 +140,13 @@ body {
   pointer-events: none;
   image-rendering: pixelated;
 }
-@keyframes floatLab {
-  0% { transform: translateY(0) translateX(0); }
-  25% { transform: translateY(10px) translateX(10px); }
-  50% { transform: translateY(0) translateX(20px); }
-  75% { transform: translateY(-10px) translateX(10px); }
-  100% { transform: translateY(0) translateX(0); }
+@keyframes floatLab { 0% { transform: translateY(0) translateX(0); } 25% { transform: translateY(10px) translateX(10px); } 50% { transform: translateY(0) translateX(20px); } 75% { transform: translateY(-10px) translateX(10px); } 100% { transform: translateY(0) translateX(0); } }
+
+/* MOBILE ADJUSTMENTS */
+@media only screen and (max-width: 600px) {
+  .gallery { width: 25vw; padding: 2vw; }
+  .frame img { width: 95%; height: 95%; }
+  .heart-btn img { width: 50vw; }
 }
 </style>
 </head>
